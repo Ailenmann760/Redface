@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { auth, googleProvider } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../context/AuthContext';
-import { Button, Input } from '../components/ui/button'; // shadcn Input from shadcn
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -33,10 +32,12 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col items-center p-4">
-      <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="mb-4" />
-      <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="mb-4" />
-      <Button onClick={handleSignup} className="mb-4">Sign Up</Button>
-      <Button variant="outline" onClick={handleGoogle}>Sign Up with Google</Button>
+      {/* Replaced Input component with standard input tag */}
+      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="mb-4 p-2 border border-gray-300 rounded-md" />
+      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="mb-4 p-2 border border-gray-300 rounded-md" />
+      {/* Replaced Button components with standard button tags */}
+      <button onClick={handleSignup} className="mb-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Sign Up</button>
+      <button onClick={handleGoogle} className="bg-transparent hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-900 dark:text-gray-100 font-bold py-2 px-4 rounded-lg border border-gray-400">Sign Up with Google</button>
     </div>
   );
 };
