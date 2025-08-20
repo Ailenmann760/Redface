@@ -1,4 +1,6 @@
 // App.js
+// Triggering new Vercel deployment
+
 // This file is the main entry point for the RedFace React frontend.
 // It sets up the basic layout, handles dark/light mode, and includes
 // a simple state-based routing system for different pages.
