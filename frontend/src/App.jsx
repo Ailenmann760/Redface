@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import ProfileSetup from './pages/ProfileSetup';
 import Dating from './pages/Dating';
 import Feed from './pages/Feed';
-import Explore from './pages/Explore';
+// REMOVED: import Explore from './pages/Explore';
 import Messaging from './pages/Messaging';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
@@ -26,7 +26,7 @@ function App() {
           <Route path="/profile-setup" element={<ProfileSetup />} />
           <Route path="/dating" element={<Dating />} />
           <Route path="/feed" element={<Feed />} />
-          <Route path="/explore" element={<Explore />} />
+          {/* REMOVED: <Route path="/explore" element={<Explore />} /> */}
           <Route path="/messages" element={<Messaging />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
