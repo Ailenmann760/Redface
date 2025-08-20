@@ -5,7 +5,9 @@ import { Moon, Sun } from 'lucide-react';
 const Navbar = ({ darkMode, setDarkMode }) => {
   return (
     <nav className="flex justify-between p-4 bg-background border-b">
-      <Link to="/feed">RedFace</Link>
+      <Link to="/feed">
+        <img src="/images/redface-logo.png" alt="RedFace Logo" className="h-8 w-auto" />
+      </Link>
       <div className="flex space-x-4">
         <Link to="/feed">Feed</Link>
         <Link to="/explore">Explore</Link>
