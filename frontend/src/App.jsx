@@ -7,7 +7,7 @@ import ProfileSetup from './pages/ProfileSetup';
 import Dating from './pages/Dating';
 // REMOVED: import Feed from './pages/Feed';
 // REMOVED: import Explore from './pages/Explore';
-import Messaging from './pages/Messaging';
+// REMOVED: import Messaging from './pages/Messaging';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
 import { motion } from 'framer-motion';
@@ -27,7 +27,7 @@ function App() {
           <Route path="/dating" element={<Dating />} />
           {/* REMOVED: <Route path="/feed" element={<Feed />} /> */}
           {/* REMOVED: <Route path="/explore" element={<Explore />} /> */}
-          <Route path="/messages" element={<Messaging />} />
+          {/* REMOVED: <Route path="/messages" element={<Messaging />} /> */}
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </motion.div>
