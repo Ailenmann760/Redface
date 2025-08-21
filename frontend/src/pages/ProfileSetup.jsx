@@ -4,7 +4,9 @@ import axios from 'axios';
 import { auth, storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { AuthContext } from '../context/AuthContext';
-import { Button, Input, Textarea } from '../components/ui'; // shadcn
+import { Button } from '@/components/ui/button'; // Absolute import
+import { Input } from '@/components/ui/input'; // Absolute import
+import { Textarea } from '@/components/ui/textarea'; // Absolute import
 
 const ProfileSetup = () => {
   const [pic, setPic] = useState(null);
