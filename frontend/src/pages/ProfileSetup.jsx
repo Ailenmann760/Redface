@@ -1,46 +1,45 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { auth, storage } from '../firebase';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { auth, googleProvider } from '../firebase';
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { AuthContext } from '../context/AuthContext';
 import { Button } from '@/components/ui/button'; // Absolute import
 import { Input } from '@/components/ui/input'; // Absolute import
-import { Textarea } from '@/components/ui/textarea'; // Absolute import
 
-const ProfileSetup = () => {
-  const [pic, setPic] = useState(null);
-  const [bio, setBio] = useState('');
-  const [about, setAbout] = useState('');
+const Signup = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const currentUser = useContext(AuthContext);
 
-  const handleSave = async () => {
+  if (currentUser) navigate('/feed');
+
+  const handleSignup = async () => {
     try {
-      let url = '';
-      if (pic) {
-        const storageRef = ref(storage, `profiles/${currentUser.uid}`);
-        await uploadBytes(storageRef, pic);
-        url = await getDownloadURL(storageRef);
-      }
-      const token = await currentUser.getIdToken();
-      await axios.post('/api/users/profile', { profilePic: url, bio, about }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      navigate('/feed');
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/profile-setup');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate('/profile-setup');
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <div className="flex flex-col p-4">
-      <Input type="file" onChange={(e) => setPic(e.target.files[0])} className="mb-4" />
-      <Textarea value={bio} onChange={(e) => setBio(e.target.value)} placeholder="Bio" className="mb-4" />
-      <Textarea value={about} onChange={(e) => setAbout(e.target.value)} placeholder="About" className="mb-4" />
-      <Button onClick={handleSave}>Save Profile</Button>
+    <div className="flex flex-col items-center p-4">
+      <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="mb-4" />
+      <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="mb-4" />
+      <Button onClick={handleSignup} className="mb-4">Sign Up</Button>
+      <Button variant="outline" onClick={handleGoogle}>Sign Up with Google</Button>
     </div>
   );
 };
 
-export default ProfileSetup;
+export default Signup;
