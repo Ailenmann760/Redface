@@ -3,7 +3,8 @@ import axios from 'axios';
 import io from 'socket.io-client';
 import { auth } from '../firebase';
 import { AuthContext } from '../context/AuthContext';
-import { Input, Button } from '../components/ui';
+import { Input } from '@/components/ui/input'; // Absolute import
+import { Button } from '@/components/ui/button'; // Absolute import
 
 const socket = io('http://localhost:5000'); // Replace with deployed URL
 
