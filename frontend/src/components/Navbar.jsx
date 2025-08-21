@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Switch } from './ui/switch'; // From shadcn/ui
+import { Switch } from '@/components/ui/switch'; // Absolute import
 import { Moon, Sun } from 'lucide-react';
 
 const Navbar = ({ darkMode, setDarkMode }) => {
