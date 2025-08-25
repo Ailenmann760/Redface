@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button'; // Absolute import
+import Navbar from '../components/Navbar.jsx'; // Corrected relative import
 
 const Landing = () => {
   return (
@@ -8,12 +8,13 @@ const Landing = () => {
       <h1 className="text-4xl font-bold">Welcome to RedFace</h1>
       <p className="mt-4">Dating + Social Network</p>
       <div className="mt-8 space-x-4">
-        <Button asChild>
+        {/* Replace the non-existent Button component with the Navbar component */}
+        <Navbar asChild>
           <Link to="/signup">Sign Up</Link>
-        </Button>
-        <Button variant="outline" asChild>
+        </Navbar>
+        <Navbar variant="outline" asChild>
           <Link to="/login">Login</Link>
-        </Button>
+        </Navbar>
       </div>
     </div>
   );
