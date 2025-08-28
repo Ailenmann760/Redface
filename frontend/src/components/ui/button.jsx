@@ -1,10 +1,9 @@
 // frontend/src/components/ui/button.jsx
-
 import React from 'react';
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none data-[state=checked]:bg-blue-500 data-[state=unchecked]:bg-gray-300',
+  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none data-[state=checked]:bg-blue-500 data-[state=unchecked]:bg-gray-300',
   {
     variants: {
       variant: {
