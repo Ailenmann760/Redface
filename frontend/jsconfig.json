@@ -3,11 +3,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*"
+        "./frontend/src/*"
       ]
     }
   },
   "include": [
-    "src/**/*"
+    "frontend/src/**/*"
   ]
 }
+v
