@@ -1,5 +1,4 @@
 // frontend/src/components/ui/card.jsx
-
 import React from 'react';
 import { cva } from 'class-variance-authority';
 
